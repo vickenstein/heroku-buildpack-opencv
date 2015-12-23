@@ -34,7 +34,9 @@ cp -a "$VENDORED_OPENCV/lib/." $VENDORED_SO
 ######################################
 echo 'Configure Bundler For Ruby-OpenCV'
 bundle config build.ruby-opencv --with-opencv-dir=$VENDORED_SO
-echo "BUNDLE_BUILD__RUBY-OPENCV: \"--with-opencv-dir=/app/vendor/opencv/lib\"" >> $CACHE_DIR/.bundle/config
+echo "BUNDLE_BUILD__RUBY-OPENCV: --with-opencv-dir=/app/vendor/opencv/lib" >> $CACHE_DIR/.bundle/config
+cp -v -R $CACHE_DIR/.bundle/config $BUILD_DIR/.bundle
+sed -i "s,/app,$BUILD_DIR,g" $BUILD_DIR/.bundle/config
 ls -lah $BUILD_DIR
 ls -lah $CACHE_DIR
 ls -lah $CACHE_DIR/.bundle
