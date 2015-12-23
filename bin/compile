@@ -37,7 +37,7 @@ bundle config build.ruby-opencv --with-opencv-dir=$VENDORED_SO
 ls -lah $BUILD_DIR
 ls -lah $CACHE_DIR
 ls -lah $CACHE_DIR/.bundle
-
+cat $CACHE_DIR/.bundle/config
 ######################################
 
 # runtime
