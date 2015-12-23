@@ -38,7 +38,6 @@ echo "BUNDLE_BUILD__RUBY-OPENCV: --with-opencv-dir=/app/vendor/opencv/lib" >> $C
 mkdir -p $BUILD_DIR/.bundle
 cp -v $CACHE_DIR/.bundle/config $BUILD_DIR/.bundle/config
 cat $BUILD_DIR/.bundle/config
-sed -i "s,/app,$BUILD_DIR,g" $BUILD_DIR/.bundle/config
 ######################################
 
 # runtime
