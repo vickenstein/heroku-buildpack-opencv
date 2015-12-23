@@ -34,16 +34,9 @@ cp -a "$VENDORED_OPENCV/lib/." $VENDORED_SO
 ######################################
 echo 'Configure Bundler For Ruby-OpenCV'
 bundle config build.ruby-opencv --with-opencv-dir=$VENDORED_SO
-ls -lah
-echo "Old .bundle/config contents"
-cat "$BUILD_DIR/.bundle/config"
-echo "Cache .bundle/config contents"
-cat "$CACHE_DIR/.bundle/config"
-ls -lah
-echo "Old heroku"
-cat "$BUILD_DIR/.heroku-bundle/config"
-echo "New heroku"
-cat "$CACHE_DIR/.heroku-bundle/config"
+ls -lah $BUILD_DIR
+ls -lah $CACHE_DIR
+
 ######################################
 
 # runtime
