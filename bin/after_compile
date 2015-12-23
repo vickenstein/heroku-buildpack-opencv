@@ -1,1 +1,2 @@
 export PKG_CONFIG_PATH="/app/vendor/opencv/lib/pkgconfig:$PKG_CONFIG_PATH"
+bundler -v
