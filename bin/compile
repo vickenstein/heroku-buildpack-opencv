@@ -31,8 +31,8 @@ VENDORED_SO="$BUILD_DIR/vendor/opencv/lib"
 mkdir -p $VENDORED_SO
 cp -a "$VENDORED_OPENCV/lib/." $VENDORED_SO
 
-echo 'TEST'
-bundle -v
+echo 'Configure Bundler For Ruby-OpenCV'
+bundle config build.ruby-opencv --with-opencv-dir=$VENDORED_SO
 
 # runtime
 mkdir -p "$BUILD_DIR/.profile.d"
