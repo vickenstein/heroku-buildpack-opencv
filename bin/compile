@@ -32,14 +32,15 @@ mkdir -p $VENDORED_SO
 cp -a "$VENDORED_OPENCV/lib/." $VENDORED_SO
 
 ######################################
-echo 'Configure Bundler For Ruby-OpenCV'
-bundle config build.ruby-opencv --with-opencv-dir=$BUILD_DIR/vendor/opencv
-echo "BUNDLE_BUILD__RUBY-OPENCV: --with-opencv-dir=/app/vendor/opencv" >> $CACHE_DIR/.bundle/config
-mkdir -p $BUILD_DIR/.bundle
-cp -v $CACHE_DIR/.bundle/config $BUILD_DIR/.bundle/config
-cat $BUILD_DIR/.bundle/config
+#echo 'Configure Bundler For Ruby-OpenCV'
+#bundle config build.ruby-opencv --with-opencv-dir=$BUILD_DIR/vendor/opencv
+#echo "BUNDLE_BUILD__RUBY-OPENCV: --with-opencv-dir=/app/vendor/opencv" >> $CACHE_DIR/.bundle/config
+#mkdir -p $BUILD_DIR/.bundle
+#cp -v $CACHE_DIR/.bundle/config $BUILD_DIR/.bundle/config
+#cat $BUILD_DIR/.bundle/config
 ######################################
 
+echo "GET PKG VERSION"
 pkg-config --modversion opencv
 
 # runtime
@@ -47,6 +48,7 @@ mkdir -p "$BUILD_DIR/.profile.d"
 echo "export LD_LIBRARY_PATH=\"\$HOME/vendor/opencv/lib:\$LD_LIBRARY_PATH\"" > $BUILD_DIR/.profile.d/opencv.sh
 echo "export PKG_CONFIG_PATH=\"\$HOME/vendor/opencv/lib/pkgconfig:\$PKG_CONFIG_PATH\"" >> $BUILD_DIR/.profile.d/opencv.sh
 
+echo "run shell - GET PKG VERSION"
 $BUILD_DIR/.profile.d/opencv.sh
 pkg-config --modversion opencv
 
