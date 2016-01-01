@@ -40,9 +40,6 @@ cp -a "$VENDORED_OPENCV/lib/." $VENDORED_SO
 #cat $BUILD_DIR/.bundle/config
 ######################################
 
-echo "GET PKG VERSION"
-pkg-config --modversion opencv
-
 # runtime
 mkdir -p "$BUILD_DIR/.profile.d"
 echo "export LD_LIBRARY_PATH=\"\$HOME/vendor/opencv/lib:\$LD_LIBRARY_PATH\"" > $BUILD_DIR/.profile.d/opencv.sh
