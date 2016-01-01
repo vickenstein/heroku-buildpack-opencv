@@ -40,7 +40,13 @@ cp -v $CACHE_DIR/.bundle/config $BUILD_DIR/.bundle/config
 cat $BUILD_DIR/.bundle/config
 ######################################
 
+pkg-config --modversion opencv
+
 # runtime
 mkdir -p "$BUILD_DIR/.profile.d"
 echo "export LD_LIBRARY_PATH=\"\$HOME/vendor/opencv/lib:\$LD_LIBRARY_PATH\"" > $BUILD_DIR/.profile.d/opencv.sh
 echo "export PKG_CONFIG_PATH=\"\$HOME/vendor/opencv/lib/pkgconfig:\$PKG_CONFIG_PATH\"" >> $BUILD_DIR/.profile.d/opencv.sh
+
+$BUILD_DIR/.profile.d/opencv.sh
+pkg-config --modversion opencv
+
