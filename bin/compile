@@ -46,6 +46,6 @@ echo "export LD_LIBRARY_PATH=\"\$HOME/vendor/opencv/lib:\$LD_LIBRARY_PATH\"" > $
 echo "export PKG_CONFIG_PATH=\"\$HOME/vendor/opencv/lib/pkgconfig:\$PKG_CONFIG_PATH\"" >> $BUILD_DIR/.profile.d/opencv.sh
 
 echo "run shell - GET PKG VERSION"
-$BUILD_DIR/.profile.d/opencv.sh
+export PKG_CONFIG_PATH=$VENDORED_OPENCV/lib/pkgconfig:$PKG_CONFIG_PATH
 pkg-config --modversion opencv
 
